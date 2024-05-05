@@ -39,7 +39,7 @@ out/
 *.tar.gz
 *.rar
 
-docs/*.png
+
 
 ### Exclusions ###
 !gradle/wrapper/gradle-wrapper.jar
