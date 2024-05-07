@@ -169,6 +169,7 @@ public class DataHelper {
                 generateValidCvc()
         );
     }
+
     public static CardInfo getValidDataWithOwnerEmpty() {
         return new CardInfo(
                 getCardNumberStatusApproved(),
@@ -184,7 +185,7 @@ public class DataHelper {
                 getCardNumberStatusApproved(),
                 generateMonth(0),
                 generateYear(0),
-        fakerRu.name().firstName() + " " + fakerRu.name().lastName(),
+                fakerRu.name().firstName() + " " + fakerRu.name().lastName(),
                 generateValidCvc()
         );
     }
@@ -209,7 +210,7 @@ public class DataHelper {
         );
     }
 
-    public static CardInfo getValidDataWith1Digit() {
+    public static CardInfo getValidDataWithCVC1Digit() {
         return new CardInfo(
                 getCardNumberStatusApproved(),
                 generateMonth(0),

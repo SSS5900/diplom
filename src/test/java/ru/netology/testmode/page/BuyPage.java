@@ -22,10 +22,11 @@ public class BuyPage {
     private final SelenideElement inputError = $(".input__sub");
     private final SelenideElement successMessage = $(".notification_status_ok");
     private final SelenideElement errorMessage = $(".notification_status_error");
-
+    private final SelenideElement dataForm = $("[action]");
 
     public BuyPage() {
         headingBuy.shouldBe(visible);
+        dataForm.shouldBe(visible);
     }
 
     public void enteringCardData(DataHelper.CardInfo cardInfo) {
@@ -63,7 +64,6 @@ public class BuyPage {
         errorMessage.$(".notification__title").shouldHave(text("Ошибка"));
         errorMessage.$(".notification__content").shouldHave(text("Ошибка! Банк отказал в проведении операции."));
     }
-
 
 
 }

@@ -50,101 +50,110 @@ public class BuyInCreditTest {
     @Test
     @DisplayName("Should valid card data with approved status")
     void shouldValidDataStatusApproved() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithApprovedCard();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.getSuccessMessage();
-        assertEquals("APPROVED", SQLHelper.getBuyRequestStatus());
+        assertEquals("APPROVED", SQLHelper.getBuyCreditRequestStatus());
 
     }
 
     @Test
     @DisplayName("Should valid card data with declined status")
     void shouldValidDataStatusDeclined() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithDeclinedCard();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.getErrorMessage();
-        assertEquals("DECLINED", SQLHelper.getBuyRequestStatus());
+        assertEquals("DECLINED", SQLHelper.getBuyCreditRequestStatus());
 
     }
 
     @Test
     @DisplayName("Card number empty")
-    void shouldCartNumberEmpty(){
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+    void shouldCartNumberEmpty() {
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithEmptyCard();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorEmptyField();
     }
+
     @Test
     @DisplayName("Card number with 15 digits")
-    void shouldCartNumber15Digits(){
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+    void shouldCartNumber15Digits() {
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWith15DigitCard();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Card number with 17 digits")
-    void shouldCartNumber17Digits(){
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+    void shouldCartNumber17Digits() {
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWith17DigitCard();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Month with 1 digit")
-    void shouldMonth1Digit(){
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
-        var cardInfo = DataHelper.getValidDataWith1Digit();
+    void shouldMonth1Digit() {
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
+        var cardInfo = DataHelper.getValidDataWith1DigitMonth();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Month with 00")
     void shouldMonth00() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWith00Month();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Month with 13")
     void shouldMonth13() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWith13Month();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Year with 1 digit")
     void shouldYear1Digit() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWith1DigitYear();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Year with 23")
     void shouldYear23() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWith23Year();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Year with 00")
     void shouldYear00() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWith00Year();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Year empty")
     void shouldYearEmpty() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithEmptyYear();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorEmptyField();
@@ -153,63 +162,70 @@ public class BuyInCreditTest {
     @Test
     @DisplayName("Owner empty")
     void shouldOwnerEmpty() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithOwnerEmpty();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorEmptyField();
     }
+
     @Test
     @DisplayName("Owner text on russian")
     void shouldOwnerTextOnRussian() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithOwnerTextOnRussian();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Owner digit")
     void shouldOwnerDigit() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithOwnerDigit();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("CVC/CVV empty")
     void shouldCVCEmpty() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithCvcEmpty();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorEmptyField();
     }
+
     @Test
     @DisplayName("CVC/CVV 1 digit")
     void shouldCVC1Digit() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
-        var cardInfo = DataHelper.getValidDataWith1Digit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
+        var cardInfo = DataHelper.getValidDataWithCVC1Digit();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("CVC/CVV 4 digits")
     void shouldCVC4Digits() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithCVC4Digit();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorIncorrectFormat();
     }
+
     @Test
     @DisplayName("Month empty")
     void shouldMonthEmpty() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWithMonthEmpty();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.inputErrorEmptyField();
     }
+
     @Test
     @DisplayName("Card with 16 digits")
     void shouldCardWith16Digits() {
-        var buyInCreditPage = paymentTypePage.ClickButtonBuyInCredit();
+        var buyInCreditPage = paymentTypePage.clickButtonBuyInCredit();
         var cardInfo = DataHelper.getValidDataWith16DigitCard();
         buyInCreditPage.enteringCardData(cardInfo);
         buyInCreditPage.getErrorMessage();
